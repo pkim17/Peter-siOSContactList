@@ -22,11 +22,11 @@
                                     <segment title="Edit"/>
                                 </segments>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHe-iV-Mxw">
-                                <rect key="frame" x="-5" y="70" width="424" height="350.5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHe-iV-Mxw">
+                                <rect key="frame" x="15" y="101" width="384" height="310.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rkf-ps-VMx">
-                                        <rect key="frame" x="5" y="20" width="384" height="310.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rkf-ps-VMx">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="310.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jFI-3w-yiP">
                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
@@ -143,19 +143,19 @@
                                                 <rect key="frame" x="0.0" y="280.5" width="384" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg5-Ub-lbZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-3L-aJU">
-                                                        <rect key="frame" x="150" y="0.0" width="67" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/1970" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-3L-aJU">
+                                                        <rect key="frame" x="127.5" y="0.0" width="126" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9B-qF-Bdc">
-                                                        <rect key="frame" x="247" y="0.0" width="137" height="30"/>
+                                                        <rect key="frame" x="283.5" y="0.0" width="100.5" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
@@ -164,8 +164,13 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rkf-ps-VMx" firstAttribute="width" secondItem="lHe-iV-Mxw" secondAttribute="width" id="Fj3-As-C2N"/>
                                     <constraint firstItem="rkf-ps-VMx" firstAttribute="height" secondItem="lHe-iV-Mxw" secondAttribute="height" id="LwJ-BS-X1X"/>
+                                    <constraint firstItem="rkf-ps-VMx" firstAttribute="top" secondItem="lHe-iV-Mxw" secondAttribute="top" id="NMD-yr-0g8"/>
+                                    <constraint firstItem="rkf-ps-VMx" firstAttribute="leading" secondItem="lHe-iV-Mxw" secondAttribute="leadingMargin" constant="-8" id="ZoB-8x-Wtr"/>
                                     <constraint firstItem="rkf-ps-VMx" firstAttribute="width" secondItem="lHe-iV-Mxw" secondAttribute="width" id="gco-Ge-2Th"/>
+                                    <constraint firstAttribute="bottom" secondItem="rkf-ps-VMx" secondAttribute="bottom" id="h9H-io-NK7"/>
+                                    <constraint firstAttribute="trailing" secondItem="rkf-ps-VMx" secondAttribute="trailing" id="jck-Ne-wYE"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="z9z-yb-Byj"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="h55-Mf-0WH"/>
