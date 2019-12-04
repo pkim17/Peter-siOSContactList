@@ -12,8 +12,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     @IBOutlet weak var pckSortField: UIPickerView!
     @IBOutlet weak var swAscending: UISwitch!
+    @IBOutlet weak var lblBattery: UILabel!
     
-    let sortOrderItems: Array<String> = ["Contact Name", "City", "Birthday"]
+    
+    let sortOrderItems: Array<String> = ["contactName", "city", "birthday"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,43 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         pckSortField.dataSource = self
         pckSortField.delegate = self
         
-        // Do any additional setup after loading the view.
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.batteryChanged),
+                                               name: UIDevice.batteryStateDidChangeNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.batteryChanged),
+                                               name: UIDevice.batteryLevelDidChangeNotification,
+                                               object: nil)
+        self.batteryChanged()
+
+        
+    }
+    
+    @objc func batteryChanged(){
+        
+        let device = UIDevice.current
+        var batteryState: String
+        
+        switch(device.batteryState){
+            case .charging:
+                batteryState = "+"
+            case .full:
+                batteryState = "!"
+            case .unplugged:
+                batteryState = "-"
+            case .unknown:
+                batteryState = "?"
+            
+        }
+        
+        let batteryLevelPercent = device.batteryLevel * 100
+        let batteryLevel = String(format: "%.0f%%", batteryLevelPercent)
+        let batteryStatus = "\(batteryLevel) (\(batteryState))"
+        lblBattery.text = batteryStatus
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +78,37 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         pckSortField.reloadComponent(0)
     
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let device = UIDevice.current
+        print("Device Info:")
+        print("Name: \(device.name)") // Device Name
+        print("Model: \(device.model)") // Device Model such as iPhone/iPad
+        print("System Name: \(device.systemName)") // OS, such as iPhone OS
+        print("System Version: \(device.systemVersion)") // OS Version Number
+        print("Identifier: \(device.identifierForVendor!)") // Unique App Device Identifier
+        
+        let orientation: String
+        switch device.orientation {
+            case .faceDown:
+                orientation = "Face Down"
+            case .landscapeLeft:
+                orientation = "Landscape Left"
+            case .portrait:
+                orientation = "Portrait"
+            case .landscapeRight:
+                orientation = "Landscape Right"
+            case .faceUp:
+                orientation = "Face Up"
+            case .portraitUpsideDown:
+                orientation = "Portrait Upside Down"
+            case .unknown:
+                orientation = "Unknown Orientation"
+        }
+        print("Orientation: \(orientation)")
+        
     }
     
     override func didReceiveMemoryWarning() {
